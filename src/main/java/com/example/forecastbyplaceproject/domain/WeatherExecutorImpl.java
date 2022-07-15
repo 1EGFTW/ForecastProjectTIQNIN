@@ -2,9 +2,9 @@ package com.example.forecastbyplaceproject.domain;
 
 import com.example.forecastbyplaceproject.api.models.WeatherRequest;
 import com.example.forecastbyplaceproject.api.models.WeatherResponse;
-import com.example.forecastbyplaceproject.data.entities.WeatherResponseMapper;
+import com.example.forecastbyplaceproject.data.entities.mapper.WeatherResponseMapper;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.data.services.interfaces.PlaceService;
+import com.example.forecastbyplaceproject.data.services.weather.interfaces.PlaceService;
 import com.example.forecastbyplaceproject.domain.interfaces.WeatherExecutor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

@@ -1,11 +1,8 @@
-package com.example.forecastbyplaceproject.data.services.interfaces;
+package com.example.forecastbyplaceproject.data.services.weather.interfaces;
 
 import com.example.forecastbyplaceproject.api.models.WeatherRequest;
-import com.example.forecastbyplaceproject.api.models.WeatherResponse;
-import com.example.forecastbyplaceproject.data.entities.WeatherResponseMapper;
+import com.example.forecastbyplaceproject.data.entities.mapper.WeatherResponseMapper;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.data.entities.forecast.Forecast;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
