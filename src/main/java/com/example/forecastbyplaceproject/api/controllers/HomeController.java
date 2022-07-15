@@ -2,6 +2,7 @@ package com.example.forecastbyplaceproject.api.controllers;
 
 import com.example.forecastbyplaceproject.api.models.WeatherRequest;
 import com.example.forecastbyplaceproject.api.models.WeatherResponse;
+import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.domain.interfaces.WeatherExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ public class HomeController {
     }
 
     @PostMapping("/getWeather")
-    public WeatherResponse getWeather(@RequestBody WeatherRequest weatherRequest){
+    public WeatherResponse getWeather(@RequestBody WeatherRequest weatherRequest) throws CustomException {
         return weatherExecutor.execute(weatherRequest);
     }
     @GetMapping("/getAll")

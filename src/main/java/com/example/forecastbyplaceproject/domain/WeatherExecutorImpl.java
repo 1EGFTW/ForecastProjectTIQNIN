@@ -2,12 +2,14 @@ package com.example.forecastbyplaceproject.domain;
 
 import com.example.forecastbyplaceproject.api.models.WeatherRequest;
 import com.example.forecastbyplaceproject.api.models.WeatherResponse;
+import com.example.forecastbyplaceproject.data.entities.WeatherResponseMapper;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.data.services.interfaces.PlaceService;
 import com.example.forecastbyplaceproject.domain.interfaces.WeatherExecutor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,7 +23,13 @@ public class WeatherExecutorImpl implements WeatherExecutor {
 
     @Override
     public WeatherResponse execute(WeatherRequest weatherRequest) throws CustomException {
-        return placeService.getWeatherByLocation(weatherRequest);
+        WeatherResponseMapper weatherResponseMapper= placeService.getWeatherByLocation(weatherRequest);
+        return WeatherResponse.builder()
+                .countryName(weatherResponseMapper.getCountryName())
+                .temp(weatherResponseMapper.getTemp())
+                .typeName(weatherResponseMapper.getTypeName())
+                .placeName(weatherResponseMapper.getPlaceName())
+                .build();
         //tuk trqbva da stava preobrazuvaneto kym weatherResponse
         //paketite trqbva da sa v edinstweno chislo i s malki bukvi
         //da se napr custom exceptions
@@ -29,6 +37,16 @@ public class WeatherExecutorImpl implements WeatherExecutor {
 
     @Override
     public List<WeatherResponse> executeAll() {
-        return placeService.getAllWeather();
+        List<WeatherResponseMapper> weatherResponseMappers= placeService.getAllWeather();
+        List<WeatherResponse> result=new ArrayList<>();
+        for(WeatherResponseMapper w:weatherResponseMappers){
+            result.add(WeatherResponse.builder()
+                    .countryName(w.getCountryName())
+                    .temp(w.getTemp())
+                    .typeName(w.getTypeName())
+                    .placeName(w.getPlaceName())
+                    .build());
+        }
+        return result;
     }
 }
