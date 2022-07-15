@@ -1,8 +1,8 @@
 package com.example.forecastbyplaceproject.data.services.weather;
 
-import com.example.forecastbyplaceproject.api.models.WeatherRequest;
-import com.example.forecastbyplaceproject.data.entities.Country;
-import com.example.forecastbyplaceproject.data.entities.Place;
+import com.example.forecastbyplaceproject.api.models.weather.WeatherRequest;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Country;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
 import com.example.forecastbyplaceproject.data.entities.mapper.WeatherResponseMapper;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.data.entities.forecast.Forecast;
@@ -51,7 +51,6 @@ public class PlaceServiceImpl implements PlaceService{
                 .temp(String.valueOf(forecast.getCurrent().getTemp_c()))
                 .countryName(place.getCountry().getCountryName())
                 .build();
-        //ne trqbva da vryshta direktno respone, a trqbva da se mapne v domain kym response
     }
 
     @Override

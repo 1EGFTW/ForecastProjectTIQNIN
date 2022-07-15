@@ -1,8 +1,6 @@
 package com.example.forecastbyplaceproject.data.services.crud.service;
 
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetRequest;
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetResponse;
-import com.example.forecastbyplaceproject.data.entities.Place;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.data.entities.mapper.PlaceGetResponseMapper;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Primary

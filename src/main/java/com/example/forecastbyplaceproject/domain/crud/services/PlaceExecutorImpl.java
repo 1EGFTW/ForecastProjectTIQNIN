@@ -1,8 +1,7 @@
-package com.example.forecastbyplaceproject.domain;
+package com.example.forecastbyplaceproject.domain.crud.services;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceCreateRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceEditRequest;
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceGetResponse;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.data.entities.mapper.PlaceGetResponseMapper;
@@ -10,7 +9,7 @@ import com.example.forecastbyplaceproject.data.services.crud.interfaces.AddServi
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.DeleteService;
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.GetService;
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.UpdateService;
-import com.example.forecastbyplaceproject.domain.interfaces.PlaceExecutor;
+import com.example.forecastbyplaceproject.domain.crud.interfaces.PlaceExecutor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 

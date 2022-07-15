@@ -2,10 +2,9 @@ package com.example.forecastbyplaceproject.api.controllers;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceCreateRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceEditRequest;
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceGetResponse;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.domain.interfaces.PlaceExecutor;
+import com.example.forecastbyplaceproject.domain.crud.interfaces.PlaceExecutor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +18,8 @@ public class PlaceController {
     }
 
     @PostMapping("/place")
-    public void addPlace(@RequestBody PlaceCreateRequest placeCreateRequest){
-        placeExecutor.createPlace(placeCreateRequest);
+    public String addPlace(@RequestBody PlaceCreateRequest placeCreateRequest){
+        return "Id of created place:" + String.valueOf(placeExecutor.createPlace(placeCreateRequest));
     }
     @DeleteMapping("/place")
     public void deletePlace(@RequestParam Long id){

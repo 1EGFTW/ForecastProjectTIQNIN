@@ -1,9 +1,9 @@
 package com.example.forecastbyplaceproject.data.services.crud.service;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceCreateRequest;
-import com.example.forecastbyplaceproject.data.entities.Country;
-import com.example.forecastbyplaceproject.data.entities.Place;
-import com.example.forecastbyplaceproject.data.entities.Type;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Country;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Type;
 import com.example.forecastbyplaceproject.data.repositories.CountryRepository;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
 import com.example.forecastbyplaceproject.data.repositories.TypeRepository;

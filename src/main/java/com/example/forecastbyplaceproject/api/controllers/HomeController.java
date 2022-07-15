@@ -1,9 +1,9 @@
 package com.example.forecastbyplaceproject.api.controllers;
 
-import com.example.forecastbyplaceproject.api.models.WeatherRequest;
-import com.example.forecastbyplaceproject.api.models.WeatherResponse;
+import com.example.forecastbyplaceproject.api.models.weather.WeatherRequest;
+import com.example.forecastbyplaceproject.api.models.weather.WeatherResponse;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.domain.interfaces.WeatherExecutor;
+import com.example.forecastbyplaceproject.domain.weather.interfaces.WeatherExecutor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

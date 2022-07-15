@@ -1,4 +1,4 @@
-package com.example.forecastbyplaceproject.api.models;
+package com.example.forecastbyplaceproject.api.models.weather;
 
 import lombok.*;
 import org.springframework.stereotype.Service;

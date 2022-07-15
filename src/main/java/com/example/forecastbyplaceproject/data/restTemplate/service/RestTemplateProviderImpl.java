@@ -1,4 +1,4 @@
-package com.example.forecastbyplaceproject.data.restTemplate;
+package com.example.forecastbyplaceproject.data.restTemplate.service;
 
 import com.example.forecastbyplaceproject.data.restTemplate.interfaces.RestTemplateProvider;
 import net.bytebuddy.implementation.bind.annotation.Pipe;

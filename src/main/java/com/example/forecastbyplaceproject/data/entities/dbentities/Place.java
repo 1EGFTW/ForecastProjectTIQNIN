@@ -1,10 +1,8 @@
-package com.example.forecastbyplaceproject.data.entities;
+package com.example.forecastbyplaceproject.data.entities.dbentities;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 

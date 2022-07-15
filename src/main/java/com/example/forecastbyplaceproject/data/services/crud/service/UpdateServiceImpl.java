@@ -1,8 +1,7 @@
 package com.example.forecastbyplaceproject.data.services.crud.service;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceEditRequest;
-import com.example.forecastbyplaceproject.data.entities.Place;
-import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
+import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.UpdateService;
 import org.springframework.context.annotation.Primary;

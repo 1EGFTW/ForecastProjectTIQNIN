@@ -1,10 +1,10 @@
-package com.example.forecastbyplaceproject.data.entities;
+package com.example.forecastbyplaceproject.data.entities.dbentities;
 
+import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.HashSet;

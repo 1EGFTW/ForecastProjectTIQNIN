@@ -1,4 +1,4 @@
-package com.example.forecastbyplaceproject.domain.interfaces;
+package com.example.forecastbyplaceproject.domain.crud.interfaces;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceCreateRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceEditRequest;
