@@ -1,8 +1,8 @@
-package com.example.forecastbyplaceproject.data.services;
+package com.example.forecastbyplaceproject.data.services.weather;
 
 import com.example.forecastbyplaceproject.data.entities.forecast.Forecast;
 import com.example.forecastbyplaceproject.data.restTemplate.interfaces.RestTemplateProvider;
-import com.example.forecastbyplaceproject.data.services.interfaces.ForecastService;
+import com.example.forecastbyplaceproject.data.services.weather.interfaces.ForecastService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

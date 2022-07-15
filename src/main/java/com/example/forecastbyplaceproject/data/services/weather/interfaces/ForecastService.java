@@ -1,4 +1,4 @@
-package com.example.forecastbyplaceproject.data.services.interfaces;
+package com.example.forecastbyplaceproject.data.services.weather.interfaces;
 
 import com.example.forecastbyplaceproject.data.entities.forecast.Forecast;
 

@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface PlaceRepository extends JpaRepository<Place,Long> {
     Place getPlaceByCountryAndPlaceName(Country countryName,String placeName);
+    Place getPlaceByPlaceName(String name);
 }
