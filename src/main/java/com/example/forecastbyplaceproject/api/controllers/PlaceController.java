@@ -8,6 +8,8 @@ import com.example.forecastbyplaceproject.data.entities.exception.CustomExceptio
 import com.example.forecastbyplaceproject.domain.interfaces.PlaceExecutor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PlaceController {
     private final PlaceExecutor placeExecutor;
@@ -29,10 +31,9 @@ public class PlaceController {
         placeExecutor.updatePlace(id,placeEditRequest);
     }
     @GetMapping("/place")
-    public PlaceGetResponse getPlace(@RequestParam String placeName) throws CustomException {
+    public List<PlaceGetResponse> getPlace(@RequestParam String placeName) throws CustomException {
         return  placeExecutor.getPlace(placeName);
     }
-    //i po id get request
     @GetMapping("/place{id}")
     public PlaceGetResponse getPlaceById(@PathVariable Long id) throws CustomException {
         return  placeExecutor.getPlaceById(id);

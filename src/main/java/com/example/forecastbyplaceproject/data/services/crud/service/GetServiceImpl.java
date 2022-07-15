@@ -4,12 +4,16 @@ import com.example.forecastbyplaceproject.api.models.crud.PlaceGetRequest;
 import com.example.forecastbyplaceproject.api.models.crud.PlaceGetResponse;
 import com.example.forecastbyplaceproject.data.entities.Place;
 import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
+import com.example.forecastbyplaceproject.data.entities.mapper.PlaceGetResponseMapper;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.GetService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
@@ -21,29 +25,38 @@ public class GetServiceImpl implements GetService {
     }
 
     @Override
-    public PlaceGetResponse getPlace(String placeName) throws CustomException {
-        Place place=placeRepository.getPlaceByPlaceName(placeName);
-        if(place==null){
+    public   List<PlaceGetResponseMapper> getPlace(String placeName) throws CustomException {
+        // Place place=placeRepository.getPlaceByPlaceName(placeName);
+        List<Place> places = placeRepository.findAll()
+                .stream()
+                .filter(place1 -> {
+                    return place1.getPlaceName().equals(placeName);
+                }).toList();
+
+        if(places==null){
             throw new CustomException("No such place");
         }
-
-        return PlaceGetResponse.builder()
-                .countryName(place.getCountry().getCountryName())
-                .lat(place.getLat())
-                .lon(place.getLon())
-                .typeName(place.getType().getTypeName())
-                .placeName(place.getPlaceName())
-                .build();
+        List<PlaceGetResponseMapper> results=new ArrayList<>();
+        for(Place p:places){
+            results.add(PlaceGetResponseMapper.builder()
+                    .countryName(p.getCountry().getCountryName())
+                    .lat(p.getLat())
+                    .lon(p.getLon())
+                    .typeName(p.getType().getTypeName())
+                    .placeName(p.getPlaceName())
+                    .build());
+        }
+        return results;
     }
 
     @Override
-    public PlaceGetResponse getPlaceById(Long id) throws CustomException {
+    public PlaceGetResponseMapper getPlaceById(Long id) throws CustomException {
         Optional<Place> placeToGET=placeRepository.findById(id);
         Place place=new Place();
         if(placeToGET.isPresent()){
             place=placeToGET.get();
         }
-        return PlaceGetResponse.builder()
+        return PlaceGetResponseMapper.builder()
                 .countryName(place.getCountry().getCountryName())
                 .lat(place.getLat())
                 .lon(place.getLon())
