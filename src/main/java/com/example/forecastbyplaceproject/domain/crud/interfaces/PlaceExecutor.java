@@ -12,6 +12,6 @@ public interface PlaceExecutor {
     Long createPlace(PlaceCreateRequest placeCreateRequest);
     void deletePlace(Long id);
     void updatePlace(Long id,PlaceEditRequest placeEditRequest);
-    List<PlaceGetResponse> getPlace(String placeName) throws CustomException;
-    PlaceGetResponse getPlaceById(Long id) throws CustomException;
+    List<PlaceGetResponse> findPlace(String placeName);
+    PlaceGetResponse getPlaceById(Long id);
 }

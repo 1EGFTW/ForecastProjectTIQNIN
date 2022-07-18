@@ -2,6 +2,7 @@ package com.example.forecastbyplaceproject.data.services.crud.service;
 
 import com.example.forecastbyplaceproject.api.models.crud.PlaceEditRequest;
 import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
+import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
 import com.example.forecastbyplaceproject.data.services.crud.interfaces.UpdateService;
 import org.springframework.context.annotation.Primary;
@@ -20,11 +21,7 @@ public class UpdateServiceImpl implements UpdateService {
 
     @Override
     public void update(Long id,PlaceEditRequest placeEditRequest) {
-        Optional<Place> place=placeRepository.findById(id);
-        Place placeToUpdate=new Place();
-        if(place.isPresent()){
-            placeToUpdate=place.get();
-        }
+        Place placeToUpdate=placeRepository.findById(id).orElseThrow();
         placeToUpdate.setPlaceName(placeEditRequest.getPlaceName());
         placeRepository.save(placeToUpdate);
     }

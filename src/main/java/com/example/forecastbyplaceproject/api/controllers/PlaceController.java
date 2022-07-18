@@ -30,11 +30,11 @@ public class PlaceController {
         placeExecutor.updatePlace(id,placeEditRequest);
     }
     @GetMapping("/place")
-    public List<PlaceGetResponse> getPlace(@RequestParam String placeName) throws CustomException {
-        return  placeExecutor.getPlace(placeName);
+    public List<PlaceGetResponse> findPlace(@RequestParam String placeName) {
+        return  placeExecutor.findPlace(placeName);
     }
     @GetMapping("/place{id}")
-    public PlaceGetResponse getPlaceById(@PathVariable Long id) throws CustomException {
+    public PlaceGetResponse getPlaceById(@PathVariable Long id){
         return  placeExecutor.getPlaceById(id);
     }
 }
