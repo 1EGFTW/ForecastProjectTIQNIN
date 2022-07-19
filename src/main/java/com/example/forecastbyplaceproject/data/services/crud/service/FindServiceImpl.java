@@ -1,13 +1,11 @@
 package com.example.forecastbyplaceproject.data.services.crud.service;
 
-import com.example.forecastbyplaceproject.data.entities.dbentities.Place;
-import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.data.entities.mapper.PlaceGetResponseMapper;
+import com.example.forecastbyplaceproject.domain.mapper.PlaceGetResponseMapper;
 import com.example.forecastbyplaceproject.data.repositories.PlaceRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -23,17 +21,19 @@ public class FindServiceImpl implements com.example.forecastbyplaceproject.data.
 
     @Override
     public List<PlaceGetResponseMapper> findPlace(String placeName){
-        return placeRepository.findAll()
+        return placeRepository.getPlaceByPlaceName(placeName)
                 .stream()
                 .filter(Objects::nonNull)
-                .filter(place1 -> place1.getPlaceName().equals(placeName))
-                .map(p -> PlaceGetResponseMapper.builder()
-                .countryName(p.getCountry().getCountryName())
-                .lat(p.getLat())
-                .lon(p.getLon())
-                .typeName(p.getType().getTypeName())
-                .placeName(p.getPlaceName())
-                .build())
+                .map(p ->
+                        PlaceGetResponseMapper.builder().
+                                countryName(p.getCountry().getCountryName())
+                                .lat(p.getLat())
+                                .lon(p.getLon())
+                                .typeName(p.getType().getTypeName())
+                                .placeName(p.getPlaceName())
+                                .build())
+                .sorted(Comparator.comparing(PlaceGetResponseMapper::getPlaceName).
+                        thenComparing(PlaceGetResponseMapper::getCountryName))
                 .collect(Collectors.toList());
     }
 }

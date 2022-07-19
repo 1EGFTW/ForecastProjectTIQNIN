@@ -9,4 +9,5 @@ import lombok.*;
 public class WeatherRequest {
     private String place;
     private String country;
+    private boolean fahrenheit;
 }
