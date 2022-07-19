@@ -1,11 +1,6 @@
 package com.example.forecastbyplaceproject.data.services.crud.interfaces;
 
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetRequest;
-import com.example.forecastbyplaceproject.api.models.crud.PlaceGetResponse;
-import com.example.forecastbyplaceproject.data.entities.exception.CustomException;
-import com.example.forecastbyplaceproject.data.entities.mapper.PlaceGetResponseMapper;
-
-import java.util.List;
+import com.example.forecastbyplaceproject.domain.mapper.PlaceGetResponseMapper;
 
 public interface GetService {
     PlaceGetResponseMapper getPlaceById(Long id);

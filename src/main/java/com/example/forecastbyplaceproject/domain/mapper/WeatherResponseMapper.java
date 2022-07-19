@@ -1,4 +1,4 @@
-package com.example.forecastbyplaceproject.data.entities.mapper;
+package com.example.forecastbyplaceproject.domain.mapper;
 
 import lombok.*;
 
