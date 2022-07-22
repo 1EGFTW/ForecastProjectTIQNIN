@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface PlaceRepository extends JpaRepository<Place,Long> {
     Place getPlaceByCountryAndPlaceName(Country countryName,String placeName);
-    @Query("SELECT p FROM Place p where p.placeName like 'name%'")
+    @Query("SELECT p FROM Place p where p.placeName like :name%")
     List<Place> getPlaceByPlaceName(@Param("name") String name); //da se napravi s wildcard
 }

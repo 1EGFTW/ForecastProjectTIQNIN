@@ -50,7 +50,7 @@ public class AddServiceImpl implements AddService {
                 .findFirst()
                 .orElseThrow()
                 .getId();*/
-        return Stream.of(typeRepository.getByTypeName(createRequest.getTypeName()))
+       return Stream.of(typeRepository.getByTypeName(createRequest.getTypeName()))
                 .filter(type -> {
                     if(type==null){
                         typeRepository.save(new Type(createRequest.getTypeName()));

@@ -45,4 +45,11 @@ public class WeatherExecutorImpl implements WeatherExecutor {
                         .build())
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<WeatherResponse> executeMultiple(List<WeatherRequest> weatherRequests) {
+        return weatherRequests.stream()
+                .map(this::execute)
+                .collect(Collectors.toList());
+    }
 }

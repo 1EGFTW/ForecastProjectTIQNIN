@@ -7,6 +7,7 @@ import com.example.forecastbyplaceproject.data.entities.exception.CustomExceptio
 import java.util.List;
 
 public interface WeatherExecutor {
-    WeatherResponse execute(WeatherRequest weatherRequest) throws CustomException;
+    WeatherResponse execute(WeatherRequest weatherRequest);
     List<WeatherResponse> executeAll();
+    List<WeatherResponse> executeMultiple(List<WeatherRequest> weatherRequests);
 }

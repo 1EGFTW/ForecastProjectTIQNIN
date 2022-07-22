@@ -20,8 +20,12 @@ public class HomeController {
     }
 
     @PostMapping("/getWeather")
-    public WeatherResponse getWeather(@RequestBody WeatherRequest weatherRequest) throws CustomException {
+    public WeatherResponse getWeather(@RequestBody WeatherRequest weatherRequest) {
         return weatherExecutor.execute(weatherRequest);
+    }
+    @PostMapping("/getWeathers")
+    public List<WeatherResponse> getWeathers(@RequestBody List<WeatherRequest> weatherRequests){
+        return weatherExecutor.executeMultiple(weatherRequests);
     }
     @GetMapping("/getAll")
     public List<WeatherResponse> getAll(){
